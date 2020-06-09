@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'TiendaGuichoApp',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +55,7 @@ ROOT_URLCONF = 'TiendaGuicho.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['D:/mega/2do semestre/Redes/ProyectoTiendaGuicho/TiendaGuicho/TiendaGuicho/TiendaGuichoApp/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
