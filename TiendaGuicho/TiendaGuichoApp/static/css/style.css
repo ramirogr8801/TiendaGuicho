@@ -1,0 +1,51 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?k1x30m');
+  src:  url('fonts/icomoon.eot?k1x30m#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?k1x30m') format('truetype'),
+    url('fonts/icomoon.woff?k1x30m') format('woff'),
+    url('fonts/icomoon.svg?k1x30m#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-sports-shoe:before {
+  content: "\e900";
+}
+.icon-mail:before {
+  content: "\e901";
+}
+.icon-email:before {
+  content: "\e901";
+}
+.icon-letter:before {
+  content: "\e901";
+}
+.icon-envelope:before {
+  content: "\e901";
+}
+.icon-contact:before {
+  content: "\e901";
+}
+.icon-t-shirt:before {
+  content: "\e902";
+}
+.icon-cart:before {
+  content: "\e93a";
+}
