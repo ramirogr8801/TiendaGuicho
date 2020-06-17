@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://getbootstrap.com/docs/4.0/examples/dashboard/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Inventario</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/dashboard/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="./Dashboard Template for Bootstrap_files/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./Dashboard Template for Bootstrap_files/dashboard.css" rel="stylesheet">
+  <style type="text/css">/* Chart.js */
+@-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style></head>
+
+  <body>
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="">Deportes Güicho</a>
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <a class="nav-link" href="https://getbootstrap.com/docs/4.0/examples/dashboard/#">Salir</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="accesorios.html">
+                 <span class="icon-cart"></span> Accesorios
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="ropa.html">
+                 <span class="icon-t-shirt"></span> Ropa
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="calzado.html">
+                 <span class="icon-sports-shoe"></span> Calzado	
+                </a>
+              </li>
+            </ul>
+
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Correos</span>
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                 <span class="icon-mail"></span> Enviar correo
+                </a>
+              </li>
+            </ul>
+            <img src="logo.png" width="220" height="110"> 
+        </div>
+        </nav>
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">         
+
+<div class="col-md-12 order-md-1">
+          <h2 class="mb-3">Datos para envio del correo</h2>
+          <form class="needs-validation" novalidate>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Nombre cliente" value="" required>
+                <div class="invalid-feedback">
+                  El nombre del cliente es requerido
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="apellidos">Apellidos</label>
+                <input type="text" class="form-control" id="apellidos" placeholder="Apellidos del cliente" value="" required>
+                <div class="invalid-feedback">
+                   Los apellidos del cliente son requeridos
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="asunto">Asunto</label>
+                <input type="text" class="form-control" id="asunto" placeholder="Asunto del correo" required>
+                <div class="invalid-feedback" style="width: 100%;">
+                  El asunto es requerido
+                </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="email">E-mail del cliente</label>
+              <input type="email" class="form-control" id="email" placeholder="email@ejemplo.com">
+              <div class="invalid-feedback">
+                Ingrese una dirección de correo electrónico válida 
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="address">Mensaje</label>
+              <textarea class="form-control" id="mensaje" name="mensaje" rows="8" cols="170" disabled placeholder="Aqui van los datos"></textarea>
+            </div>
+
+
+
+          </div>
+        </main>
+      </div>
+    </div>
+
+</body></html>

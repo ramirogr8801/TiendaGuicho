@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'TiendaGuichoApp',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +56,7 @@ ROOT_URLCONF = 'TiendaGuicho.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['D:/mega/2do semestre/Redes/ProyectoTiendaGuicho/TiendaGuicho/TiendaGuicho/TiendaGuichoApp/templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,12 +76,20 @@ WSGI_APPLICATION = 'TiendaGuicho.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    # 'default': {
+	# 	'ENGINE': 'django.db.backends.postgresql',
+	# 	'NAME': 'guichoDB',
+	# 	'USER': 'postgres',
+	# 	'PASSWORD': 'postgres',
+	# 	'HOST': 'guichodb.c9mdye8g4foh.us-east-1.rds.amazonaws.com',
+	# 	'PORT': '5432',       
+	# },
+    'default':{
 		'ENGINE': 'django.db.backends.postgresql',
 		'NAME': 'guichoDB',
 		'USER': 'postgres',
-		'PASSWORD': 'postgres',
-		'HOST': 'guichodb.c9mdye8g4foh.us-east-1.rds.amazonaws.com',
+		'PASSWORD': 'Temporal00',
+		'HOST': 'localhost',
 		'PORT': '5432',       
 	}
 }
@@ -123,3 +132,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIR= (os.path.join(BASE_DIR, 'static'))
+
+
+EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
+SENDGRID_API_KEY = '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'
+
+# Toggle sandbox mode (when running in DEBUG mode)
+SENDGRID_SANDBOX_MODE_IN_DEBUG=False
+# echo to stdout or any other file-like object that is passed to the backend via the stream kwarg.
+SENDGRID_ECHO_TO_STDOUT=True
