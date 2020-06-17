@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %} ">
     
     <title>
-        {% block title %} Document {% endblock %}    
+        {% block title %} 
+        
+        {% endblock %}    
     </title>
 </head>
 <body>
@@ -21,17 +23,17 @@
             <div class="sidebar-sticky">
               <ul class="nav flex-column">
                 <li class="nav-item">
-                  <a class="nav-link" href="accesorios.html">
+                  <a class="nav-link" href="{% url 'Accesorios' %}">
                     <span class="icon-cart"></span> Accesorios
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="ropa.html">
+                  <a class="nav-link" href="{% url 'Ropa' %}">
                     <span class="icon-t-shirt"></span> Ropa
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" href="{% url 'Calzado' %}">
                     <span class="icon-sports-shoe"></span> Calzado
                   </a>
                 </li>
@@ -42,7 +44,7 @@
               </h6>
               <ul class="nav flex-column mb-2">
                 <li class="nav-item">
-                  <a class="nav-link" href="correo.html">
+                  <a class="nav-link" href="{% url 'Correo' %}">
                     <span class="icon-mail"></span> Enviar correo
                   </a>
                 </li>
