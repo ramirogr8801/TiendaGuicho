@@ -76,22 +76,22 @@ WSGI_APPLICATION = 'TiendaGuicho.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
+    'default': {
+		'ENGINE': 'django.db.backends.postgresql',
+		'NAME': 'tiendadb',
+		'USER': 'postgres',
+		'PASSWORD': 'Temporal00',
+		'HOST': 'ec2-3-88-53-110.compute-1.amazonaws.com',
+		'PORT': '5432',       
+	},
+    # 'default':{
 	# 	'ENGINE': 'django.db.backends.postgresql',
 	# 	'NAME': 'guichoDB',
 	# 	'USER': 'postgres',
-	# 	'PASSWORD': 'postgres',
-	# 	'HOST': 'guichodb.c9mdye8g4foh.us-east-1.rds.amazonaws.com',
+	# 	'PASSWORD': 'Temporal00',
+	# 	'HOST': 'localhost',
 	# 	'PORT': '5432',       
-	# },
-    'default':{
-		'ENGINE': 'django.db.backends.postgresql',
-		'NAME': 'guichoDB',
-		'USER': 'postgres',
-		'PASSWORD': 'Temporal00',
-		'HOST': 'localhost',
-		'PORT': '5432',       
-	}
+	# }
 }
 
 

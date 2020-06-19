@@ -6,7 +6,22 @@
 {% block content %}
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-          <h1>Lista de calzado en el inventario</h1>
+          <h1>Calzados en inventario</h1>
+          <div class="col-md12 search">
+            <form method="get">
+              <div id="ropa_rearch">
+                <div class="input-group">
+                  <input type="text" class="form-control mr-sm-2" placeholder="Buscar..." name="buscar_calzado" value="{{ request.GET.buscar_calzado }}">
+                  <span class="input-group-list">
+                    <i class="icon incon-search">
+                      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                    </i>
+                  </span>
+                </div>
+              </div>
+            </form>
+            
+          </div>   
           <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group mr-2">
               <button class="btn btn-sm btn-outline-secondary">Exportar a correo</button>
@@ -42,7 +57,7 @@
                 {% endfor %}
 
                 {% else %}
-                <h1>No existen calzados en la base de datos aun</h1>
+                <h1>No existe ningun Calzado con las características buscadas</h1>
               
               {% endif %}
             </tbody>
