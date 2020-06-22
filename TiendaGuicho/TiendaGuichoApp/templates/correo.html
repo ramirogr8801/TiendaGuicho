@@ -5,53 +5,54 @@
 {% block title %} Correo {% endblock %}
 
 {% block content %}
-<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">         
+<div class="container">
+  <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">         
 
-<div class="col-md-12 order-md-1">
-          <h2 class="mb-3">Datos para envio del correo</h2>
-          <form class="needs-validation" novalidate>
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label for="nombre">Nombre</label>
-                <input type="text" class="form-control" id="nombre" placeholder="Nombre cliente" value="" required>
-                <div class="invalid-feedback">
-                  El nombre del cliente es requerido
+    <div class="col-md-12 order-md-1">
+              <h2 class="mb-3">Datos para envío del correo</h2>
+              
+              <form class="needs-validation"  action="/correo/" method="POST"> {% csrf_token %}
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="Nombre cliente" name="nombre_cliente" required>
+                    <div class="invalid-feedback">
+                      El nombre del cliente es requerido
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="apellidos">Apellidos</label>
+                    <input type="text" class="form-control" id="apellidos" placeholder="Apellidos del cliente"  name="apellido_cliente" required>
+                    <div class="invalid-feedback">
+                       Los apellidos del cliente son requeridos
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="apellidos">Apellidos</label>
-                <input type="text" class="form-control" id="apellidos" placeholder="Apellidos del cliente" value="" required>
-                <div class="invalid-feedback">
-                   Los apellidos del cliente son requeridos
+    
+                <!-- <div class="mb-3">
+                  <label for="asunto">Asunto</label>
+                    <input type="text" class="form-control" id="asunto" placeholder="Asunto del correo" name="subject" required value="" disabled>
+                    <div class="invalid-feedback" style="width: 100%;">
+                      El asunto es requerido
+                    </div>
+                </div> -->
+    
+                <div class="mb-3">
+                  <label for="email">E-mail del cliente</label>
+                  <input type="email" class="form-control" id="email" placeholder="email@ejemplo.com" name="client_email" required>
+                  <div class="invalid-feedback">
+                    Ingrese una dirección de correo electrónico válida 
+                  </div>
                 </div>
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="asunto">Asunto</label>
-                <input type="text" class="form-control" id="asunto" placeholder="Asunto del correo" required>
-                <div class="invalid-feedback" style="width: 100%;">
-                  El asunto es requerido
+    
+                <div class="mb-3">
+                  <label for="address">Mensaje</label>
+                  <textarea class="form-control" id="mensaje_id" name="msg" rows="8" cols="170" placeholder="Aqui van los datos">{{ chequed }}</textarea>
                 </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="email">E-mail del cliente</label>
-              <input type="email" class="form-control" id="email" placeholder="email@ejemplo.com">
-              <div class="invalid-feedback">
-                Ingrese una dirección de correo electrónico válida 
+                <button type="submit" class="btn btn-primary">Enviar Correo</button>
+              </form>
               </div>
-            </div>
+            </main>
+</div>
 
-            <div class="mb-3">
-              <label for="address">Mensaje</label>
-              <textarea class="form-control" id="mensaje" name="mensaje" rows="8" cols="170" disabled placeholder="Aqui van los datos"></textarea>
-            </div>
-
-
-
-          </div>
-        </main>
-      </div>
-    </div>
-    {% endblock %}
+  {% endblock %}

@@ -1,66 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   {% load static %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    {% load bootstrap4 %}
-    {% bootstrap_css %}
-    <link rel="stylesheet" href="{% static 'css/dashboard.css' %} ">
-    <link rel="stylesheet" href="{% static 'css/style.css' %} ">
-    
-    <title>
-        {% block title %} 
-        
-        {% endblock %}    
-    </title>
+  {% load bootstrap4 %}
+  {% bootstrap_css %}
+  <link rel="stylesheet" href="{% static 'css/dashboard.css' %} ">
+  <link rel="stylesheet" href="{% static 'css/style.css' %} ">
+
+  <!-- dataTable paginacion de tablas -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.css" />
+  <title>
+    {% block title %}
+
+    {% endblock %}
+  </title>
 </head>
+
 <body>
-    <div class="container-fluid">
-        <div class="row">
-          <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-            <div class="sidebar-sticky">
-              <ul class="nav flex-column">
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'Accesorios' %}">
-                    <span class="icon-cart"></span> Accesorios
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'Ropa' %}">
-                    <span class="icon-t-shirt"></span> Ropa
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'Calzado' %}">
-                    <span class="icon-sports-shoe"></span> Calzado
-                  </a>
-                </li>
-              </ul>
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+        <div class="sidebar-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Accesorios' %}">
+                <span class="icon-cart"></span> Accesorios
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Ropa' %}">
+                <span class="icon-t-shirt"></span> Ropa
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Calzado' %}">
+                <span class="icon-sports-shoe"></span> Calzado
+              </a>
+            </li>
+          </ul>
+
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>Correos</span>
+          </h6>
+          <ul class="nav flex-column mb-2">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Correo' %}">
+                <span class="icon-mail"></span> Enviar correo
+              </a>
+            </li>
+          </ul>
+
+          <img src="{% static 'img/logo.png' %}" width="220" height="110">
+
+        </div>
+      </nav>
+
+
+      <!-- Contenido que va a cambiar -->
+      {% block content %}
+
+      {% endblock %}
+
     
-              <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                <span>Correos</span>
-              </h6>
-              <ul class="nav flex-column mb-2">
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'Correo' %}">
-                    <span class="icon-mail"></span> Enviar correo
-                  </a>
-                </li>
-              </ul>
-    
-              <img src="{% static 'img/logo.png' %}" width="220" height="110">
-    
-            </div>
-          </nav>
+      {% bootstrap_javascript jquery='full' %}
 
+      <!-- js de dataTable -->
+      <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.js"></script>
+      
+      <script>
+        $(document).ready(function () {
+          $('#search').DataTable({ "searching": false });
+        });
 
-    <!-- Contenido que va a cambiar -->
-          {% block content %}
+        $("#selectall").on("click", function () {
+          $(".case").prop("checked", this.checked);
+        });
 
-          {% endblock %}
+        // selecciona o deselecciona los checkboxes 
+        $(".case").on("click", function () {
+          if ($(".case").length == $(".case:checked").length) {
+            $("#selectall").prop("checked", true);
+          } else {
+            $("#selectall").prop("checked", false);
+          }
+        });
+      </script>
 
-          {% bootstrap_javascript jquery='full' %}
 </body>
+
 </html>
