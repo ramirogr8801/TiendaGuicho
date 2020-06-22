@@ -5,71 +5,79 @@
 {% block title %} Ropa {% endblock %}
 
 {% block content %}
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1>Ropa en inventario</h1>
-            
-            <div class="col-md12 search">
-              <form method="get">
-                <div id="ropa_rearch">
-                  <div class="input-group">
-                    <input type="text" class="form-control mr-sm-2" placeholder="Buscar..." name="buscar_ropa" value="{{ request.GET.buscar_ropa }}">
-                    <span class="input-group-list">
-                      <i class="icon incon-search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-                      </i>
-                    </span>
-                  </div>
-                </div>
-              </form>
-              <!-- <form class="form-inline my-2 my-lg-0" method="get">
-                <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1>Ropa en inventario</h1>
+
+    <div class="col-md12 search">
+      <form method="get">
+        <div id="ropa_rearch">
+          <div class="input-group">
+            <input type="text" class="form-control mr-sm-2" placeholder="Buscar..." name="buscar_ropa"
+              value="{{ request.GET.buscar_ropa }}">
+            <span class="input-group-list">
+              <i class="icon incon-search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-              </form> -->
-            </div>          
-            <div class="btn-toolbar mb-2 mb-md-0">
-              <div class="btn-group mr-2">
-                <button class="btn btn-sm btn-outline-secondary">Exportar a correo</button>
-              </div>
-            </div>
+              </i>
+            </span>
           </div>
-
-          <div class="table-responsive">
-            <table class="table table-striped table-sm">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Tipo</th>
-                  <th>Color</th>
-                  <th>Talla</th>
-                  <th>Cantidad</th>
-                  <th>Precio</th>
-                </tr>
-              </thead>
-              <tbody>
-
-                {% if ropas %}
-
-                {% for ropa in ropas %}
-                <tr>
-                  <td>{{ropa.id}}</td>
-                  <td>{{ropa.tipo}}</td>
-                  <td>{{ropa.color}}</td>
-                  <td>{{ropa.talla}}</td>
-                  <td>{{ropa.cantidad}}</td>
-                  <td>{{ropa.precio}}</td>
-                </tr>
-
-                  {% endfor %}
-
-                  {% else %}
-                  <h1>No existe ninguna ropa con las características buscadas</h1>
-                
-                {% endif %}
-              </tbody>
-            </table>
-          </div>
-        </main>
+        </div>
+      </form>
+     
+    </div>
+    
+    <form id="formulario_checkbox" method="post">{% csrf_token %}
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group mr-2">
+        <button class="btn btn-sm btn-outline-secondary" type="submit" form="formulario_checkbox">Exportar a
+          correo</button>
       </div>
-    </div> 
-    {% endblock %}
+    </div>
+  </form>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-striped table-sm table-bordered" id="search">
+      <thead>
+        <tr>
+          <th><input type="checkbox" id="selectall"></th>
+          <th>Tipo</th>
+          <th>Color</th>
+          <th>Talla</th>
+          <th>Cantidad</th>
+          <th>Precio</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        {% if ropas %}
+        
+        {% for ropa in ropas %}
+        <tr>
+          <td>
+            <input type="checkbox" class="case"
+                name="ropas_selected" id="ropa_{{ ropa.id }}" form="formulario_checkbox"
+                value ="{{ ropa.tipo }} {{ropa.color}} talla {{ropa.talla}}">
+          </td>
+          <td>{{ropa.tipo}}</td>
+          <td>{{ropa.color}}</td>
+          <td>{{ropa.talla}}</td>
+          <td>{{ropa.cantidad}}</td>
+          <td>{{ropa.precio}}</td>
+        </tr>
+
+        {% endfor %}
+
+        {% else %}
+        <h1>No existe ninguna ropa con las características buscadas</h1>
+
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
+
+
+  <div>lista de la ropa marcada en chekbox {{ chequed }}</div>
+</main>
+{% endblock %}
