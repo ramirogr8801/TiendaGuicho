@@ -137,7 +137,7 @@ STATICFILES_DIR= (os.path.join(BASE_DIR, 'static'))
 
 
 EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
-SENDGRID_API_KEY = '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'
+
 
 # Toggle sandbox mode (when running in DEBUG mode)
 SENDGRID_SANDBOX_MODE_IN_DEBUG=False
