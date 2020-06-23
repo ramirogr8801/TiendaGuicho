@@ -28,15 +28,7 @@
                     </div>
                   </div>
                 </div>
-    
-                <!-- <div class="mb-3">
-                  <label for="asunto">Asunto</label>
-                    <input type="text" class="form-control" id="asunto" placeholder="Asunto del correo" name="subject" required value="" disabled>
-                    <div class="invalid-feedback" style="width: 100%;">
-                      El asunto es requerido
-                    </div>
-                </div> -->
-    
+        
                 <div class="mb-3">
                   <label for="email">E-mail del cliente</label>
                   <input type="email" class="form-control" id="email" placeholder="email@ejemplo.com" name="client_email" required>
@@ -47,7 +39,7 @@
     
                 <div class="mb-3">
                   <label for="address">Mensaje</label>
-                  <textarea class="form-control" id="mensaje_id" name="msg" rows="8" cols="170" placeholder="Aqui van los datos">{{ chequed }}</textarea>
+                  <textarea class="form-control" id="mensaje_id" name="msg" rows="8" cols="170" placeholder="Aqui van los datos">{% for nombre in chequed %}{{nombre}}---{% endfor %}</textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Enviar Correo</button>
               </form>

@@ -10,8 +10,6 @@ class Calzado(models.Model):
     precio = models.IntegerField()
     cantidad = models.IntegerField()
     
-    # def __str__(self):
-    #     return self.tipo
     
 class Ropa(models.Model):
     tipo = models.CharField(max_length = 30)
