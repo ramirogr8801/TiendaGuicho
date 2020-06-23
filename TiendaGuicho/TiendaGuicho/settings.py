@@ -137,9 +137,11 @@ STATICFILES_DIR= (os.path.join(BASE_DIR, 'static'))
 
 
 EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
-SENDGRID_API_KEY = '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'
+SENDGRID_API_KEY = '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'
 
 # Toggle sandbox mode (when running in DEBUG mode)
 SENDGRID_SANDBOX_MODE_IN_DEBUG=False
 # echo to stdout or any other file-like object that is passed to the backend via the stream kwarg.
 SENDGRID_ECHO_TO_STDOUT=True
+
+
